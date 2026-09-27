@@ -100,3 +100,7 @@ What investigative skill was strengthened?
 ## Executive Summary
 
 Write a concise non-technical summary suitable for a SOC handoff or incident-management audience.
+
+## Detection / Visibility Notes
+
+What telemetry or detection capability worked, failed, or needs improvement?
