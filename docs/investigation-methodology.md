@@ -6,7 +6,7 @@ This document defines the investigation model used throughout the lab.
 
 The analyst follows evidence from an alert to a defensible disposition. The workflow is not intended to force a particular attack narrative.
 
-## Investigation Lifecycle
+## Investigation lifecycle
 
 1. Alert intake
 2. Initial triage
@@ -20,7 +20,7 @@ The analyst follows evidence from an alert to a defensible disposition. The work
 10. Escalation or closure
 11. Case documentation
 
-## Evidence Discipline
+## Evidence discipline
 
 For every significant finding, distinguish:
 
@@ -42,7 +42,7 @@ For every significant finding, distinguish:
 
 **Conclusion:** Determine only what the collected evidence supports.
 
-## Core Analyst Questions
+## Core analyst questions
 
 For every alert, ask:
 
@@ -63,7 +63,7 @@ For every alert, ask:
 
 ### True Positive
 
-Use when available evidence supports malicious or policy-violating activity relevant to the alert.
+Use when the available evidence supports malicious or policy-violating activity relevant to the alert.
 
 ### False Positive / Benign
 
@@ -75,32 +75,36 @@ Use when available evidence cannot support a sufficiently confident determinatio
 
 An inconclusive result is valid when evidence is incomplete. Document the missing evidence and recommended next actions.
 
-## Timeline Rules
+## Timeline rules
 
 Case timelines must be derived from actual telemetry.
 
 Do not invent timestamps to make an attack narrative coherent.
 
-When timestamps from different sources are used, record the source and account for any known timestamp normalization or timezone differences.
+When timestamps from different sources are correlated, record the source and account for known clock/time-zone differences.
 
-## Querying Rules
+## Query discipline
 
-SPL should answer a specific investigative question.
+Before writing SPL, state:
 
-Before writing a query, identify:
+1. The investigative question.
+2. The evidence needed to answer it.
+3. The data source or event type likely to contain that evidence.
+4. The fields needed.
+5. The condition that will identify relevant events.
 
-1. The question.
-2. The required evidence.
-3. The event source.
-4. The relevant fields.
-5. The expected relationship or condition.
+Then write and test the query.
 
-A complicated query is not inherently better than a simple query.
+A technically valid query is not necessarily an analytically useful query.
 
-## Scope Rules
+## Coaching gate
 
-The flagship lab focuses on L1 SOC investigation. Identity attack investigation, deep EDR investigation, and lateral-movement analysis are separate project areas and should not become core dependencies here.
+After each major pivot, the analyst should explain in their own words:
 
-## Learning Gate
+- Why the pivot was necessary.
+- What evidence was found.
+- What that evidence proves.
+- What it does not prove.
+- What question the next pivot is intended to answer.
 
-After each major case, the analyst should be able to explain the investigation without reading the final report. If the reasoning cannot be explained, the case is not considered complete.
+Do not advance a case simply because the commands or SPL work.
