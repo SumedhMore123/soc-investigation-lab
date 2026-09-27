@@ -134,6 +134,10 @@ soc-investigation-lab/
 
 Case directories are first-class project artifacts and will contain the alert, investigation evidence, timeline, findings, limitations, disposition, and final report.
 
+## Simulation Model
+
+Atomic Red Team is used as a controlled activity-generation layer. Individual tests are selected only when they produce useful telemetry for a case. The simulation does not determine the analyst's verdict; the verdict must emerge from the collected evidence.
+
 ## Safety
 
 All simulations are performed in an isolated lab environment under the project's defensive-investigation purpose. No activity should target real systems or third-party infrastructure.
